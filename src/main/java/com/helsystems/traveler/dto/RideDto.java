@@ -1,7 +1,7 @@
 package com.helsystems.traveler.dto;
 
 import lombok.Data;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
