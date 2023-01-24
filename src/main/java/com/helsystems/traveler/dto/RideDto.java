@@ -11,7 +11,7 @@ public class RideDto {
 
     private String status;
 
-    @JsonFormat(pattern="yyyy-MM-dd-HH-mm-ss")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDateTime date;
 
     private int price;
