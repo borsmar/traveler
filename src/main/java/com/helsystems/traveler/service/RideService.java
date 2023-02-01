@@ -3,6 +3,7 @@ package com.helsystems.traveler.service;
 import com.helsystems.traveler.dto.RideDto;
 import com.helsystems.traveler.model.Ride;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface RideService extends IGenericService<RideDto> {
      RideDto convertRideToDto(Ride ride);
 
 
-     List<RideDto> findAllByParams(Integer capacity, String direction, LocalDateTime dateAfter, LocalDateTime dateBefore, String status);
+     List<RideDto> findAllByParams(Integer capacity, String direction, LocalDate dateAfter, LocalDate dateBefore, String status);
 
      void addPassengerToRide(Long rideDto, Long rideId);
 }

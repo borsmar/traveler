@@ -37,19 +37,19 @@ public class RideSpecs  {
     }
 
 
-    public static Specification<Ride> isBetweenDateAndTime(LocalDateTime dateBefore, LocalDateTime dateAfter) {
+    public static Specification<Ride> isBetweenDateAndTime(LocalDate dateBefore, LocalDate dateAfter) {
         if(dateBefore == null && dateAfter == null){
             return (ride, cq, cb) -> cb.isNotNull(ride.get("date"));
         }
         if(dateBefore == null) {
-            dateBefore = LocalDateTime.now().plusMonths(1L);
+            dateBefore = LocalDate.now().plusMonths(1L);
         }
          if(dateAfter == null){
-             dateAfter = LocalDateTime.now().minusMinutes(1L);
+             dateAfter = LocalDate.now().minusDays(1L);
         }
 
-        LocalDateTime finalDateAfter = dateAfter;
-        LocalDateTime finalDateBefore = dateBefore;
+        LocalDate finalDateAfter = dateAfter;
+        LocalDate finalDateBefore = dateBefore;
 
         return (ride, cq, cb) -> cb.between(ride.get("date"), finalDateAfter, finalDateBefore);
     }

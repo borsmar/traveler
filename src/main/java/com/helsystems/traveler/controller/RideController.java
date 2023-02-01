@@ -7,6 +7,7 @@ import com.helsystems.traveler.service.TravelerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 @RestController
@@ -25,8 +26,8 @@ public class RideController {
     @GetMapping("/rides/query")
     private List<RideDto> getRidesByParams(@RequestParam(required = false)  Integer capacity,
                                            @RequestParam(required = false)  String direction,
-                                           @RequestParam(required = false) LocalDateTime dateAfter,
-                                           @RequestParam(required = false) LocalDateTime dateBefore,
+                                           @RequestParam(required = false) LocalDate dateAfter,
+                                           @RequestParam(required = false) LocalDate dateBefore,
                                            @RequestParam(required = false) String status)
     {
         return rideService.findAllByParams(capacity, direction, dateAfter, dateBefore, status);

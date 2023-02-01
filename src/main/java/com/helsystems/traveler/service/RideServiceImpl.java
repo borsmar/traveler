@@ -11,6 +11,7 @@ import com.helsystems.traveler.model.enums.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -38,8 +39,8 @@ public class RideServiceImpl implements RideService {
    @Override
     public List<RideDto> findAllByParams(Integer capacity,
                                          String direction,
-                                         LocalDateTime dateAfter,
-                                         LocalDateTime dateBefore,
+                                         LocalDate dateAfter,
+                                         LocalDate dateBefore,
                                          String status) {
 
         List<Ride> rideList = dao.findAll
