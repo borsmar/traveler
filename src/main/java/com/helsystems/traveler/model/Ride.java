@@ -28,7 +28,7 @@ public class Ride implements Serializable {
     private String description;
 
     @Column
-    private LocalDateTime date;
+    private LocalDate date;
 
     @Column
     private int price;
