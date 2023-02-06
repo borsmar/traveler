@@ -104,7 +104,7 @@ public class TravelerServiceImpl implements TravelerService {
 
 
         ride.setDate(rideDto.getDate());
-        ride.setDriver(dao.findById(rideDto.getDriverId()).get());
+        ride.setDriver(dao.findById(rideDto.getDriver().getId()).get());
         ride.setPrice(rideDto.getPrice());
         ride.setCapacity(rideDto.getCapacity());
         ride.setDescription(rideDto.getDescription());
@@ -113,17 +113,17 @@ public class TravelerServiceImpl implements TravelerService {
     }
 
 
-    public RideDto convertRideToDto(Ride ride){
-        RideDto rideDto = new RideDto();
-        rideDto.setId(ride.getId());
-        rideDto.setStatus(ride.getStatus().name());
-        rideDto.setDate(ride.getDate());
-        rideDto.setPrice(ride.getPrice());
-        rideDto.setDirection(ride.getDirection().name());
-        rideDto.setDriverId(ride.getDriver().getId());
-        rideDto.setDescription(ride.getDescription());
-
-        return rideDto;
-    }
+//    public RideDto convertRideToDto(Ride ride){
+//        RideDto rideDto = new RideDto();
+//        rideDto.setId(ride.getId());
+//        rideDto.setStatus(ride.getStatus().name());
+//        rideDto.setDate(ride.getDate());
+//        rideDto.setPrice(ride.getPrice());
+//        rideDto.setDirection(ride.getDirection().name());
+//        rideDto.setDriverId(ride.getDriver().getId());
+//        rideDto.setDescription(ride.getDescription());
+//
+//        return rideDto;
+//    }
 
 }

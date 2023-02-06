@@ -18,7 +18,7 @@ public class RideDto {
 
     private String direction;
 
-    private Long driverId;
+    private TravelerDto driver;
 
     int capacity;
 

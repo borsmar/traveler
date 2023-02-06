@@ -105,7 +105,7 @@ public class RideServiceImpl implements RideService {
         }
 
         ride.setDate(rideDto.getDate());
-        ride.setDriver(travelerDao.findById(rideDto.getDriverId()).get());
+        ride.setDriver(travelerDao.findById(rideDto.getDriver().getId()).get());
         ride.setPrice(rideDto.getPrice());
         ride.setDescription(rideDto.getDescription());
 
@@ -119,12 +119,30 @@ public class RideServiceImpl implements RideService {
         rideDto.setDate(ride.getDate());
         rideDto.setPrice(ride.getPrice());
         rideDto.setDirection(ride.getDirection().name());
-        rideDto.setDriverId(ride.getDriver().getId());
+
+//        rideDto.setDriverId(ride.getDriver().getId());
+
+        rideDto.setDriver(convertTravelerToDto(ride.getDriver()));
+
+
         rideDto.setCapacity(ride.getCapacity());
         rideDto.setDescription(ride.getDescription());
         rideDto.setCurrentNumberOfPassengers(ride.getCurrentNumberOfPassengers());
 
         return rideDto;
+    }
+
+    public TravelerDto convertTravelerToDto(Traveler traveler){
+        TravelerDto travelerDto = new TravelerDto();
+
+        travelerDto.setId(traveler.getId());
+        travelerDto.setFirstname(traveler.getFirstname());
+        travelerDto.setSurname(traveler.getSurname());
+        travelerDto.setPhoneNumber(traveler.getPhoneNumber());
+        travelerDto.setTgUsername(traveler.getTgUsername());
+//        travelerDto.setRideDtos(traveler.getRides().stream().map(this::convertRideToDto).toList());
+
+        return travelerDto;
     }
 
 }
