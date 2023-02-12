@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: ${DBURL}
-    username: ${PGUSER}
-    password: ${PGPASSWORD}
+    url: jdbc:postgresql://containers-us-west-161.railway.app:6554/railway
+    username: postgres
+    password: O60zGqsjomuTKKkPmx00
     name: railway
-
-  sql:
-    init:
-      mode: always # you won't do this in prod, I'm just doing this for demo purposes
+  jpa:
+   generate-ddl: true
+   hibernate:
+    ddl-auto: update
