@@ -11,5 +11,6 @@ public class TravelerDto {
     private String surname;
     private String tgUsername;
     private String phoneNumber;
+    private String photoUrl;
 
 }

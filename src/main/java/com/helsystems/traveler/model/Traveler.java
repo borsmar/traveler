@@ -28,6 +28,9 @@ public class Traveler implements Serializable {
     @Column
     private String tgUsername;
 
+    @Column
+    private String photoUrl;
+
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Ride> rides;

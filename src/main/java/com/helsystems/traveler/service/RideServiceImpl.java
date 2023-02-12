@@ -140,6 +140,8 @@ public class RideServiceImpl implements RideService {
         travelerDto.setSurname(traveler.getSurname());
         travelerDto.setPhoneNumber(traveler.getPhoneNumber());
         travelerDto.setTgUsername(traveler.getTgUsername());
+        travelerDto.setPhotoUrl(traveler.getPhotoUrl());
+
 //        travelerDto.setRideDtos(traveler.getRides().stream().map(this::convertRideToDto).toList());
 
         return travelerDto;

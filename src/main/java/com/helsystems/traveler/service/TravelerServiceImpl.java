@@ -67,6 +67,8 @@ public class TravelerServiceImpl implements TravelerService {
         traveler.setFirstname(travelerDto.getFirstname());
         traveler.setSurname(travelerDto.getSurname());
         traveler.setPhoneNumber(travelerDto.getPhoneNumber());
+        traveler.setTgUsername(travelerDto.getTgUsername());
+        traveler.setPhotoUrl(travelerDto.getPhotoUrl());
 //        traveler.setRides(travelerDto.getRideDtos().stream().map(this::convertDtoToRide).toList());
 
         return traveler;
@@ -74,11 +76,13 @@ public class TravelerServiceImpl implements TravelerService {
 
     public TravelerDto convertTravelerToDto(Traveler traveler){
         TravelerDto travelerDto = new TravelerDto();
-
         travelerDto.setId(traveler.getId());
         travelerDto.setFirstname(traveler.getFirstname());
         travelerDto.setSurname(traveler.getSurname());
         travelerDto.setPhoneNumber(traveler.getPhoneNumber());
+        travelerDto.setPhotoUrl(traveler.getPhotoUrl());
+        travelerDto.setPhotoUrl(traveler.getPhotoUrl());
+
         System.out.println(traveler.getRides().size());
 //        travelerDto.setRideDtos(traveler.getRides().stream().map(this::convertRideToDto).toList());
 
