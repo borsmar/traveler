@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://containers-us-west-161.railway.app:6554/railway
-    username: postgres
-    password: O60zGqsjomuTKKkPmx00
+    url: ${DBURL}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
     name: railway
   jpa:
    generate-ddl: true
