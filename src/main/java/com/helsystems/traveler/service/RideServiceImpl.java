@@ -103,7 +103,7 @@ public class RideServiceImpl implements RideService {
             case "RUS" -> ride.setDirection(Direction.RUS);
             default -> throw new IllegalArgumentException("illegal direction");
         }
-
+        ride.setCapacity(rideDto.getCapacity());
         ride.setDate(rideDto.getDate());
         ride.setDriver(travelerDao.findById(rideDto.getDriver().getId()).get());
         ride.setPrice(rideDto.getPrice());
