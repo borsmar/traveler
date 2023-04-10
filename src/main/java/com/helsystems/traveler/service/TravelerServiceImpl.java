@@ -81,7 +81,6 @@ public class TravelerServiceImpl implements TravelerService {
         travelerDto.setSurname(traveler.getSurname());
         travelerDto.setPhoneNumber(traveler.getPhoneNumber());
         travelerDto.setPhotoUrl(traveler.getPhotoUrl());
-        travelerDto.setPhotoUrl(traveler.getPhotoUrl());
 
         System.out.println(traveler.getRides().size());
 //        travelerDto.setRideDtos(traveler.getRides().stream().map(this::convertRideToDto).toList());

@@ -12,5 +12,7 @@ import java.util.List;
 public interface TravelerRepository extends CrudRepository<Traveler, Long> {
 
     List<Traveler> findTravelersByRides(Ride ride);
+
+    Traveler findTravelerByTgUsername(String tgUsername);
 }
 

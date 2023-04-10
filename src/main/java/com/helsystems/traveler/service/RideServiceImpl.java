@@ -56,6 +56,7 @@ public class RideServiceImpl implements RideService {
 
     @Override
     public RideDto save(RideDto rideDto) {
+        //add checking auth to this method or to controller
         dao.save(convertDtoToRide(new Ride(), rideDto));
         return rideDto;
     }
@@ -105,7 +106,7 @@ public class RideServiceImpl implements RideService {
         }
         ride.setCapacity(rideDto.getCapacity());
         ride.setDate(rideDto.getDate());
-        ride.setDriver(travelerDao.findById(rideDto.getDriver().getId()).get());
+        ride.setDriver(travelerDao.findTravelerByTgUsername(rideDto.getDriver().getTgUsername()));
         ride.setPrice(rideDto.getPrice());
         ride.setDescription(rideDto.getDescription());
 
