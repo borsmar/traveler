@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,7 +54,7 @@ public class TravelerServiceImpl implements TravelerService {
 
     @Override
     public TravelerDto findById(Long id) {
-        return convertTravelerToDto(dao.findById(id).get());
+        return convertTravelerToDto(dao.findById(id).orElseThrow(() -> new NoSuchElementException("Traveler not found with id " + id)));
     }
 
     @Override
@@ -64,6 +65,7 @@ public class TravelerServiceImpl implements TravelerService {
 
     public Traveler convertDtoTotraveler(TravelerDto travelerDto){
         Traveler traveler = new Traveler();
+        traveler.setId(travelerDto.getId());
         traveler.setFirstname(travelerDto.getFirstname());
         traveler.setSurname(travelerDto.getSurname());
         traveler.setPhoneNumber(travelerDto.getPhoneNumber());
