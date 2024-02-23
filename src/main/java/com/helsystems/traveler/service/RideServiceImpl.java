@@ -5,6 +5,7 @@ import com.helsystems.traveler.dao.TravelerRepository;
 import com.helsystems.traveler.dto.RideDto;
 import com.helsystems.traveler.model.Ride;
 import com.helsystems.traveler.model.Traveler;
+import com.helsystems.traveler.service.kafka.MessageProducer;
 import com.helsystems.traveler.service.util.RideConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class RideServiceImpl implements RideService {
 
     @Autowired
     private RideConverter rideConverter;
+
+    @Autowired
+    private MessageProducer messageProducer;
 
 
     @Override
@@ -58,6 +62,7 @@ public class RideServiceImpl implements RideService {
     public RideDto save(RideDto rideDto) {
         //add checking auth to this method or to controller
         dao.save(rideConverter.convertDtoToRide(new Ride(), rideDto));
+        messageProducer.sendMessage("trip-notifications", rideDto.toString());
         return rideDto;
     }
 

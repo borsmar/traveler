@@ -8,3 +8,8 @@ spring:
    generate-ddl: true
    hibernate:
     ddl-auto: update
+  kafka:
+   bootstrap-servers: ${BROKERS}
+   consumer:
+    group-id: traveler-kafka-group
+
